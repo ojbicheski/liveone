@@ -1,0 +1,48 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		Detalhe
+	</div>
+	<div class="panel-body">
+		<div class="form-group">
+			<label for="productAuthor" class="col-lg-4 control-label">
+				Autor
+			</label>
+			<div class="col-lg-8">
+				<input type="text" class="form-control" 
+					id="productAuthor" placeholder="Author" 
+					ng-model="product.detailment.author">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="productDescription" class="col-lg-4 control-label">
+				Descrição
+			</label>
+			<div class="col-lg-8">
+				<textarea class="form-control" rows="3" 
+					id="productDescription" placeholder="Description" 
+					ng-model="product.detailment.description">
+				</textarea>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="productPublish" class="col-lg-4 control-label">
+				Data Publicação
+			</label>
+			<div class="col-lg-3">
+				<input type="text" class="form-control" id="productPublish"
+					placeholder="Publish Date" 
+					ng-model="product.detailment.publish">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="productUnpublish" class="col-lg-4 control-label">
+				Data Despublicação
+			</label>
+			<div class="col-lg-3">
+				<input type="text" class="form-control" 
+					id="productUnpublish" placeholder="Unpublish Date" 
+					ng-model="product.detailment.unpublish">
+			</div>
+		</div>
+	</div> <!-- panel-body -->
+</div> <!-- panel-default -->										

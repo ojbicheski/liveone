@@ -1,0 +1,107 @@
+<!-- Address Modal -->
+<div class="modal fade" id="addressModal" tabindex="-1" role="dialog"
+	aria-labelledby="addressModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Endereço</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" role="form">
+					<input type="hidden" name="idAddress" id="idAddress" ng-model="address.id">
+					<div class="form-group">
+						<label for="type" class="col-lg-2 control-label">Tipo
+							Endereço</label>
+						<div class="col-lg-8">
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="input-group">
+										<span class="input-group-addon"> 
+											<input type="radio" name="typeAddress" 
+												id="typeAddress" value="COMMERCIAL" 
+												ng-model="address.type">
+										</span> 
+										<span class="form-control">Comercial</span>
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="input-group">
+										<span class="input-group-addon"> 
+											<input type="radio" name="typeAddress" 
+												id="typeAddress" value="RESIDENTIAL" 
+												ng-model="address.type">
+										</span> 
+										<span class="form-control">Residencial</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="street" class="col-lg-2 control-label">Rua</label>
+						<div class="col-lg-8">
+							<input type="text" class="form-control" id="street"
+								placeholder="Street" ng-model="address.street">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="number" class="col-lg-2 control-label">Número</label>
+						<div class="col-lg-3">
+							<input type="text" class="form-control" id="number"
+								placeholder="Number" ng-model="address.number">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="neighborhood" class="col-lg-2 control-label">Bairro</label>
+						<div class="col-lg-8">
+							<input type="text" class="form-control" id="neighborhood"
+								placeholder="Neighborhood" ng-model="address.neighborhood">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="complement" class="col-lg-2 control-label">Complemento</label>
+						<div class="col-lg-8">
+							<input type="text" class="form-control" id="complement"
+								placeholder="Complement" ng-model="address.complement">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="postcode" class="col-lg-2 control-label">CEP</label>
+						<div class="col-lg-3">
+							<input type="text" class="form-control" id="postcode"
+								placeholder="Postcode" ng-model="address.postcode">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="city" class="col-lg-2 control-label">Cidade</label>
+						<div class="col-lg-8">
+							<input type="text" class="form-control" id="city"
+								placeholder="City" ng-model="address.city">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="state" class="col-lg-2 control-label">Estado</label>
+						<div class="col-lg-8">
+							<input type="text" class="form-control" id="state"
+								placeholder="state" ng-model="address.state">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="country" class="col-lg-2 control-label">País</label>
+						<div class="col-lg-6">
+							<input type="text" class="form-control" id="country"
+								placeholder="Country" ng-model="address.country">
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary btn-sm"
+					ng-click="save(address)">Salvar</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

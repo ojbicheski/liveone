@@ -1,0 +1,48 @@
+<!-- list member's Phones -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		Heading
+		<div class="btn-group">
+			<a data-toggle="modal" href="#phoneModal" ng-click="clean()"
+				class="btn btn-primary btn-sm"> Add New </a>
+		</div>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<td>Tipo Telefone</td>
+				<td>Número</td>
+				<td>&nbsp;</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="phn in phones">
+				<td>
+					<span ng-switch on="phn.type">
+     									<span ng-switch-when="CELLPHONE">Celular</span>
+     									<span ng-switch-when="COMMERCIALPHONE">Comercial</span>
+     									<span ng-switch-default>Residêncial</span>
+					</span>
+				</td>
+				<td>{{phn.number}}</td>
+				<td style="width: 25px">
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-default dropdown-toggle"
+								data-toggle="dropdown">
+								Ações <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#" ng-click="get('{{phn.id}}')">Editar</a></li>
+								<li><a href="#" ng-click="del('{{phn.id}}')">Remover</a></li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+	<span ng-init="list()"/>
+</div>

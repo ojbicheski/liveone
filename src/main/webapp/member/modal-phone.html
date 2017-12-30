@@ -1,0 +1,67 @@
+<!-- Phone Modal -->
+<div class="modal fade" id="phoneModal" tabindex="-1" role="dialog"
+	aria-labelledby="phoneModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Telefones</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" role="form">
+					<input type="hidden" name="idPhone" id="idPhone" ng-model="phone.id">
+					<div class="form-group">
+						<label for="type" class="col-lg-2 control-label">Tipo Telefone</label>
+						<div class="col-lg-8">
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="input-group">
+										<span class="input-group-addon"> 
+											<input type="radio" name="typePhone" 
+												id="typePhone" value="CELLPHONE" 
+												ng-model="phone.type">
+										</span> 
+										<span class="form-control">Celular</span>
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="input-group">
+										<span class="input-group-addon"> 
+											<input type="radio" name="typePhone" 
+												id="typePhone" value="COMMERCIALPHONE" 
+												ng-model="phone.type">
+										</span> 
+										<span class="form-control">Comercial</span>
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="input-group">
+										<span class="input-group-addon"> 
+											<input type="radio" name="typePhone" 
+												id="typePhone" value="RESIDENTIALPHONE" 
+												ng-model="phone.type">
+										</span> 
+										<span class="form-control">Residencial</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="number" class="col-lg-2 control-label">Número</label>
+						<div class="col-lg-8">
+							<input type="text" class="form-control" id="number"
+								placeholder="Number" ng-model="phone.number">
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary btn-sm"
+					ng-click="save(phone)">Salvar</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

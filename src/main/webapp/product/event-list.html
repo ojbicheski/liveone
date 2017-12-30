@@ -1,0 +1,73 @@
+<br/>
+<!-- List Video Videos -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<form name="form" class="css-form" novalidate>
+			<div class="btn-group">
+				<div class="input-group">
+					<span class="input-group-btn">
+						<button class="btn btn-primary btn-sm" type="button" 
+						ng-click="add(product)">Adicionar Novo Evento</button>
+					</span>
+					<input type="text" class="form-control" name="eventName" 
+						id="eventName" ng-model="product.name">
+				</div>
+			</div>
+		</form>
+	</div>
+	<table id="tableEventos" class="table">
+		<thead>
+			<tr>
+				<th>Apresentação</th>
+				<th>Privado</th>
+				<th>Nome</th>
+				<th>Evento</th>
+				<th>Hora</th>
+				<th>Publicar</th>
+				<th>Despublicar</th>
+				<th style="width: 25px">&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="pdt in products">
+				<td>
+					<span ng-switch on="pdt.show">
+     									<span ng-switch-when="LIVE">Ao Vivo</span>
+     									<span ng-switch-when="ONDEMAND">On Demand</span>
+     									<span ng-switch-default>Não selecionado</span>
+					</span>
+				</td>
+				<td>
+					<span ng-switch on="pdt.deprived">
+     									<span ng-switch-when="true">Vídeo Privado</span>
+     									<span ng-switch-when="false">Vídeo Público</span>
+     									<span ng-switch-default>Não selecionado</span>
+					</span>
+				</td>
+				<td>{{pdt.name}}</td>
+				<td>{{pdt.date}}</td>
+				<td>{{pdt.hour}}</td>
+				<td>{{pdt.detailment.publish}}</td>
+				<td>{{pdt.detailment.unpublish}}</td>
+				<td>
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-default dropdown-toggle"
+								data-toggle="dropdown">
+								Ações <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#" ng-click="get('{{pdt.id}}')">Editar</a></li>
+								<li><a href="#" ng-click="del('{{pdt.id}}')">Remover</a></li>
+								<li><a href="#" ng-click="gallery('{{pdt.id}}')">Galeria</a></li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+	<span ng-init="list()"/>
+</div><!-- END List Video Videos -->

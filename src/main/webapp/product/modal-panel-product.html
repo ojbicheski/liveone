@@ -1,0 +1,75 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Produto</div>
+	<div class="panel-body">
+		<div class="form-group">
+			<label class="col-lg-4 control-label">
+				Apresentação
+			</label>
+			<div class="col-lg-8">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="input-group">
+							<span class="input-group-addon"> 
+								<input type="radio" checked="checked"
+									ng-model="product.show"
+									name="productShow" 
+									id="productShow" 
+									value="LIVE">
+							</span> 
+							<span class="form-control">Ao Vivo</span>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="input-group">
+							<span class="input-group-addon"> 
+								<input type="radio" 
+									ng-model="product.show"
+									name="productShow" 
+									id="productShow" 
+									value="ONDEMAND">
+							</span> 
+							<span class="form-control">OnDemand</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="type" class="col-lg-4 control-label">
+				Privado
+			</label>
+			<div class="col-lg-8">
+				<div class="input-group">
+					<span class="input-group-addon"> 
+						<input type="checkbox" name="productDeprived" 
+							id="productDeprived" ng-model="product.deprived">
+					</span> 
+					<span class="form-control">
+						Vídeo não terá exibição pública
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="productName" class="col-lg-4 control-label">
+				Nome
+			</label>
+			<div class="col-lg-8">
+				<input type="text" class="form-control" 
+					id="productName" placeholder="Name" 
+					ng-model="product.name">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="productSummary" class="col-lg-4 control-label">
+				Sumário
+			</label>
+			<div class="col-lg-8">
+				<textarea class="form-control" rows="3" 
+					id="productSummary" placeholder="Summary" 
+					ng-model="product.summary">
+				</textarea>
+			</div>
+		</div>
+	</div> <!-- panel-body -->
+</div>	<!-- panel-default -->										

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="LiveOneApp">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Live One">
+<meta name="author" content="Orlei Bicheski">
+<!-- 
+<link rel="shortcut icon" href="bootstrap/assets/ico/favicon.png">
+-->
+
+<!-- Bootstrap: CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.css">
+<!-- LiveOne: CSS -->
+<link href="../lib/css/liveone.css" rel="stylesheet">
+
+<!-- Bootstrap core JavaScript -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-resource.js"></script>
+
+<script type="text/javascript" src="../js/lib/App.js"></script>
+<script type="text/javascript" src="../js/lib/util/Util.js"></script>
+<script type="text/javascript" src="../js/lib/member/MemberController.js"></script>
+<script type="text/javascript" src="../js/lib/member/AddressController.js"></script>
+<script type="text/javascript" src="../js/lib/member/PhoneController.js"></script>
+<script type="text/javascript" src="../js/lib/member/PreferenceController.js"></script>
+
+</head>
+<body>
+
+	<div ng-include="'../template/top-menu.html'"></div>
+	
+	<div ng-include="'../template/message-modal.html'"></div>
+
+	<div class="container">
+		<div class="starter-template">
+			<h1>Live One</h1>
+
+			<div class="container">
+				<ul class="nav nav-tabs" id="tabMember">
+					<li class="active"><a href="#basic"
+						data-toggle="tab">Básico</a></li>
+					<li><a href="#preferences" data-toggle="tab">Preferências</a></li>
+					<li><a href="#addresses" data-toggle="tab">Endereço</a></li>
+					<li><a href="#phones" data-toggle="tab">Telefones</a></li>
+				</ul>
+				<script>
+				$('#tabMember a').click(function(e) {
+					e.preventDefault();
+					$(this).tab('show');
+				});
+				</script>
+
+				<div class="tab-content">
+					<div class="tab-pane text-left active" id="basic" ng-controller="MemberCtrl">
+					
+						<div ng-include="'basic.html'"></div>
+
+					</div>
+					
+					<div class="tab-pane text-left" id="preferences">
+					
+						<div ng-include="'preferences.html'"></div>
+
+					</div>
+					
+					<!-- Tab Panel to list member's Addresses -->
+					<div class="tab-pane text-left" id="addresses" ng-controller="AddressCtrl">
+						
+						<div ng-include="'modal-address.html'"></div>
+						<div ng-include="'list-address.html'"></div>
+
+					</div>
+					
+					<!-- Tab Panel to list member's Phones -->
+					<div class="tab-pane text-left" id="phones" ng-controller="PhoneCtrl">
+						
+						<div ng-include="'modal-phone.html'"></div>
+						<div ng-include="'list-phone.html'"></div>
+						
+					</div>
+				</div>
+			</div>
+
+		</div>
+		
+		<div ng-include="'../template/footer-liveone.html'"></div>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!-- Video Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialogVideo"
+	aria-labelledby="videoModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true" ng-click="clean()">&times;</button>
+				<h4 class="modal-title">
+					Vídeo
+				</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" role="form">
+					<input type="hidden" name="video_id" id="video_id" ng-model="product.id">
+
+					<div ng-include="'modal-panel-product.html'"></div>
+
+					<div ng-include="'modal-panel-detail.html'"></div>
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							Vídeo
+						</div>
+						<div class="panel-body">
+							<div class="form-group">
+								<label for="videoType" class="col-lg-4 control-label">
+									Tipo do Vídeo
+								</label>
+								<div class="col-lg-8" ng-controller="TypeVideoCtrl">
+									<select class="form-control" 
+										id="videoType" ng-model="product.type" 
+										ng-options="tp.description for tp in types track by tp.id">
+										<option value="">-- choose type --</option>
+									</select>
+									<span ng-init="loadTypes()"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="videoUrl" class="col-lg-4 control-label">
+									Tipo do Vídeo
+								</label>
+								<div class="col-lg-8">
+									<input type="text" class="form-control" 
+										id="videoUrl" placeholder="URL" 
+										ng-model="product.url">
+								</div>
+							</div>
+						</div> <!-- panel-body -->
+					</div> <!-- panel-default -->									
+				</form>
+			</div>
+			
+			<div ng-include="'modal-panel-footer.html'"></div>
+
+		</div>
+	</div>
+</div><!-- END Video Modal -->

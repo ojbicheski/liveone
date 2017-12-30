@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="LiveOneApp">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Live One">
+<meta name="author" content="Orlei Bicheski">
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.css">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<!-- LiveOne: CSS -->
+<link rel="stylesheet" href="../lib/css/liveone.css" rel="stylesheet">
+<link rel="stylesheet" href="../lib/css/liveone-gallery.css" rel="stylesheet">
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-resource.js"></script>
+
+<script type="text/javascript" src="../js/lib/App.js"></script>
+<script type="text/javascript" src="../js/lib/util/Util.js"></script>
+<script type="text/javascript" src="../lib/sales/OfferingController.js"></script>
+
+</head>
+<body>
+
+	<div ng-include="'../template/top-menu.html'"></div>
+	
+	<div ng-include="'../template/message-modal.html'"></div>
+
+	<div class="container">
+		<div class="starter-template">
+			<h1>Live One</h1>
+
+			<div class="container">
+				<ul class="nav nav-tabs" id="tabProduct">
+					<li class="active"><a href="#videos" data-toggle="tab">Vídeo</a></li>
+					<li><a href="#events" data-toggle="tab">Evento</a></li>
+				</ul>
+				<script>
+				$('#tabProduct a').click(function(e) {
+					e.preventDefault();
+					$(this).tab('show');
+				});
+				</script>
+
+				<div class="tab-content">
+					<!-- Tab Panel to list Videos -->
+					<div class="tab-pane text-left active" id="videos" ng-controller="VideoCtrl">
+
+						<div ng-include="'video-modal.html'"></div>
+
+						<div ng-include="'video-list.html'"></div>
+						
+						<div ng-include="'video-gallery.html'"></div>
+						
+					</div><!-- END Tab Panel to list Videos -->
+					
+					<!-- Tab Panel to list Events -->
+					<div class="tab-pane text-left" id="events" ng-controller="EventCtrl">
+
+						<div ng-include="'event-list.html'"></div>
+
+						<div ng-include="'event-modal.html'"></div>
+
+						<div ng-include="'event-gallery.html'"></div>
+
+					</div><!-- END Tab Panel to list Events -->
+
+				</div>
+			</div>
+
+		</div>
+		
+		<div ng-include="'../template/footer-liveone.html'"></div>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<html>
+<head>
+<!-- jQuery -->
+<script type="text/javascript" src="lib/js/jquery.js"></script>
+<!-- jQuery rest -->
+<!-- <script src="scripts/jquery.rest.js"></script> -->
+<!-- WARNING: I advise not using this link, instead download and host this library on your own server as GitHub has download limits -->
+
+<script type="text/javascript">
+	var url = "http://localhost:8180/livesales/service/rest/typeVideo/";
+	function save() {
+		$.ajax({
+			async: false, 
+			url: url,
+			type: "POST",
+			dataType: "json",
+			contentType: "application/json; charset=utf-8",
+			data: formToJSON(),
+			success: showMessage,
+			failure: showMessage
+		});
+	}
+	function formToJSON() {
+		return JSON.stringify({
+			id: 		$("#id").val(),
+			description:$("#description").val()
+		});
+	}
+	function get() {
+		$.ajax({
+			async: false, 
+			url: url + $("#id").val(),
+			type: "GET",
+			dataType: "json",
+			success: renderDetails, 
+			failure: showMessage
+		});
+	}
+	function del() {
+		$.ajax({
+			async: false, 
+			url: url + $("#id").val(),
+			type: "DELETE",
+			dataType: "json",
+			success: showMessage,
+			failure: showMessage
+		});
+	}
+	function list() {
+		$.ajax({
+			async: false, 
+			url: url,
+			type: "GET",
+			dataType: "json",
+			success: renderList,
+			failure: showMessage
+		});
+	}
+	function renderDetails(data) {
+		$('#id').val(data.result.id);
+		$('#description').val(data.result.description);
+		//$('#pic').attr('src', 'pics/' + wine.picture);
+	}
+	function renderList(data, textStatus, jqXHR) {
+		var result = data.result;
+		// JAX-RS serializes an empty list as null, and a 'collection of one' as an object (not an 'array of one')
+		var list = result == null ? [] : (result instanceof Array ? result : [result]);
+
+		$('#total').html("");
+		
+		//$('#wineList li').remove();
+		$.each(list, function(index, type) {
+			$('#total').append('<li>ID: '+type.id+' Description: '+type.description+'</li>');
+			//$('#wineList').append('<li><a href="#" data-identity="' + wine.id + '">'+wine.name+'</a></li>');
+		});
+	}
+	function showMessage(data, textStatus, jqXHR) {
+		var message = "Code: " + data.code;
+		message += "\n";
+		message += "Message: " + data.message;
+		message += "\n";
+		message += "Status: " + textStatus;
+		message += "\n";
+		message += "jqXHR: " + jqXHR;
+		message += "\nSUCESSO!";
+		alert(message);
+	}
+</script>
+</head>
+<body>
+	<div style="width: 400px; font-family: Arial; font-size: 9pt;">
+		<form onsubmit="return false;">
+			<table>
+				<tbody>
+					<tr>
+						<td>ID:</td>
+						<td><input id="id" type="text" size="10"></td>
+					</tr>
+					<tr>
+						<td>Description:</td>
+						<td><input id="description" type="text" size="10"></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<div>
+								<button onclick="save()">Save</button>
+							</div>
+							<div>
+								<button onclick="get()">Get</button>
+							</div>
+							<div>
+								<button onclick="list()">All</button>
+							</div>
+							<div>
+								<button onclick="del()">Del</button>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" style="padding-top: 10px">
+							<span id="total"> </span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

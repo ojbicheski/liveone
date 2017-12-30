@@ -1,0 +1,98 @@
+<!-- Video Modal -->
+<div class="modal fade" id="eventModal" tabindex="-1" role="dialogVideo"
+	aria-labelledby="eventModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true" ng-click="clean()">&times;</button>
+				<h4 class="modal-title">
+					Vídeo
+				</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" role="form">
+					<input type="hidden" name="event_id" id="event_id" ng-model="product.id">
+
+					<div ng-include="'modal-panel-product.html'"></div>
+
+					<div ng-include="'modal-panel-detail.html'"></div>
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							Evento
+						</div>
+						<div class="panel-body">
+							<div class="form-group">
+								<label for="eventDate" class="col-lg-4 control-label">
+									Data
+								</label>
+								<div class="col-lg-3">
+									<input type="text" class="form-control" 
+										id="eventDate" placeholder="Event Date" 
+										ng-model="product.date">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="eventHour" class="col-lg-4 control-label">
+									Hora
+								</label>
+								<div class="col-lg-3">
+									<input type="text" class="form-control" 
+										id="eventHour" placeholder="Event Hour" 
+										ng-model="product.hour">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="eventCalling" class="col-lg-4 control-label">
+									Chamada Evento
+								</label>
+								<div class="col-lg-8">
+									<input type="text" class="form-control" 
+										id="eventCalling" placeholder="Event Calling" 
+										ng-model="product.calling">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="eventPlaceName" class="col-lg-4 control-label">
+									Local do Evento
+								</label>
+								<div class="col-lg-8">
+									<input type="text" class="form-control" 
+										id="eventPlaceName" placeholder="Event Place Name" 
+										ng-model="product.placeName">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="eventType" class="col-lg-4 control-label">
+									Tipo do Vídeo
+								</label>
+								<div class="col-lg-8" ng-controller="TypeVideoCtrl">
+									<select class="form-control" 
+										id="eventType" ng-model="product.type" 
+										ng-options="tp.description for tp in types track by tp.id">
+										<option value="">-- choose type --</option>
+									</select>
+									<span ng-init="loadTypes()"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="eventUrl" class="col-lg-4 control-label">
+									Tipo do Vídeo
+								</label>
+								<div class="col-lg-8">
+									<input type="text" class="form-control" 
+										id="eventUrl" placeholder="URL" 
+										ng-model="product.url">
+								</div>
+							</div>
+						</div> <!-- panel-body -->
+					</div> <!-- panel-default -->									
+				</form>
+			</div>
+			
+			<div ng-include="'modal-panel-footer.html'"></div>
+
+		</div>
+	</div>
+</div><!-- END Video Modal -->

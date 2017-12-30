@@ -1,0 +1,53 @@
+<!-- List member's Addresses -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		Heading
+		<div class="btn-group">
+			<a data-toggle="modal" href="#addressModal" ng-click="clean()"
+				class="btn btn-primary btn-sm"> Add New </a> 
+		</div>
+	</div>
+	<table id="tableAddresses" class="table">
+		<thead>
+			<tr>
+				<th>Tipo Endereço</th>
+				<th>Rua</th>
+				<th>Número</th>
+				<th>País</th>
+				<th>Código Postal</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="ads in addresses">
+				<td>
+					<span ng-switch on="ads.type">
+     									<span ng-switch-when="COMMERCIAL">Comercial</span>
+     									<span ng-switch-default>Residêncial</span>
+					</span>
+				</td>
+				<td>{{ads.street}}</td>
+				<td>{{ads.number}}</td>
+				<td>{{ads.country}}</td>
+				<td>{{ads.postcode}}</td>
+				<td style="width: 25px">
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-default dropdown-toggle"
+								data-toggle="dropdown">
+								Ações <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#" ng-click="get('{{ads.id}}')">Editar</a></li>
+								<li><a href="#" ng-click="del('{{ads.id}}')">Remover</a></li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+	<span ng-init="list()"/>
+</div>
